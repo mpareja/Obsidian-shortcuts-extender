@@ -250,7 +250,7 @@ export default class shortcutsExtender extends Plugin {
       callback: () => this.shortcutNumberedItems(),
       hotkeys: [
         {
-          modifiers: ["Ctrl"],
+          modifiers: ["Shift", "Ctrl"],
           key: "7",
         },
       ],
@@ -262,8 +262,8 @@ export default class shortcutsExtender extends Plugin {
       callback: () => this.shortcutListItems(),
       hotkeys: [
         {
-          modifiers: ["Alt"],
-          key: "-",
+          modifiers: ["Shift", "Ctrl"],
+          key: "8",
         },
       ],
     });
@@ -274,7 +274,7 @@ export default class shortcutsExtender extends Plugin {
       callback: () => this.shortcutHeaderN(1),
       hotkeys: [
         {
-          modifiers: ["Ctrl"],
+          modifiers: ["Shift", "Ctrl"],
           key: "1",
         },
       ],
@@ -286,7 +286,7 @@ export default class shortcutsExtender extends Plugin {
       callback: () => this.shortcutHeaderN(2),
       hotkeys: [
         {
-          modifiers: ["Ctrl"],
+          modifiers: ["Shift", "Ctrl"],
           key: "2",
         },
       ],
@@ -298,7 +298,7 @@ export default class shortcutsExtender extends Plugin {
       callback: () => this.shortcutHeaderN(3),
       hotkeys: [
         {
-          modifiers: ["Ctrl"],
+          modifiers: ["Shift", "Ctrl"],
           key: "3",
         },
       ],
@@ -310,7 +310,7 @@ export default class shortcutsExtender extends Plugin {
       callback: () => this.shortcutHeaderN(4),
       hotkeys: [
         {
-          modifiers: ["Ctrl"],
+          modifiers: ["Shift", "Ctrl"],
           key: "4",
         },
       ],
@@ -334,7 +334,7 @@ export default class shortcutsExtender extends Plugin {
       callback: () => this.shortcutHeaderN(6),
       hotkeys: [
         {
-          modifiers: ["Ctrl"],
+          modifiers: ["Shift", "Ctrl"],
           key: "6",
         },
       ],
@@ -346,7 +346,7 @@ export default class shortcutsExtender extends Plugin {
       callback: () => this.shortcutHeaderN(0),
       hotkeys: [
         {
-          modifiers: ["Ctrl"],
+          modifiers: ["Shift", "Ctrl"],
           key: "0",
         },
       ],
