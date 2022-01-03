@@ -245,6 +245,18 @@ export default class shortcutsExtender extends Plugin {
     });
 
   this.addCommand({
+      id: "shortcut-numbered-items",
+      name: "Creating numbered item from text",
+      callback: () => this.shortcutNumberedItems(),
+      hotkeys: [
+        {
+          modifiers: ["Ctrl"],
+          key: "7",
+        },
+      ],
+    });
+
+  this.addCommand({
       id: "shortcut-list-items",
       name: "Creating list item from text",
       callback: () => this.shortcutListItems(),
@@ -590,6 +602,40 @@ export default class shortcutsExtender extends Plugin {
       ? editor.getSelection()
       : false;
     editor.replaceSelection(`|`);
+  }
+
+  shortcutNumberedItems(): void {
+    let editor = this.app.workspace.getActiveViewOfType(MarkdownView)?.editor;
+    if (editor == null) {
+      return;
+    }
+
+    const selectedText = this.getSelectedText(editor);
+	const content = selectedText.content;
+    let outputBuilder = new Array(content.length + 3)
+    let level = 1
+
+    for (let i = 0; i < content.length; i++) {
+      const char = content[i]
+      if (char === '\r' && content[i + 1] === '\n') {
+        outputBuilder.push('\r\n' + level + '. ')
+        i++;
+        level++;
+      } else if (char === '\n') {
+        outputBuilder.push('\n' + level + '. ')
+        level++;
+      } else if (i === 0) {
+        outputBuilder.push(level + '. ')
+        outputBuilder.push(char)
+        level++;
+      } else {
+        outputBuilder.push(char)
+      }
+    }
+
+    const resultText = outputBuilder.join('')
+
+    editor.replaceRange(resultText, selectedText.start, selectedText.end);
   }
 
   shortcutListItems(): void {
